@@ -1,14 +1,14 @@
 {
   "name": "@umituz/atomic-next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive atomic design system for Next.js applications with modern React patterns and TypeScript support.",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.esm.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
     "./styles": "./dist/styles.css"
