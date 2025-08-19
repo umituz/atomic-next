@@ -1,7 +1,7 @@
 {
   "name": "@umituz/atomic-next",
-  "version": "1.0.1",
-  "description": "A comprehensive atomic design system for Next.js applications with modern React patterns and TypeScript support.",
+  "version": "1.1.0",
+  "description": "A comprehensive atomic design system specifically built for Next.js applications with Server/Client Component separation, built-in optimizations, and semantic HTML support.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -50,7 +50,8 @@
   },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react-dom": ">=18.0.0",
+    "next": ">=13.0.0"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
@@ -79,6 +80,7 @@
   "devDependencies": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "next": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "^8.35.0",
     "@typescript-eslint/parser": "^8.35.0",
     "eslint": "^9.13.0",

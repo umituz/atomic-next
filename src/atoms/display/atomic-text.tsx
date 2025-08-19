@@ -1,6 +1,8 @@
 /**
  * AtomicText Component
- * A typography component following atomic design principles
+ * A server-side typography component for Next.js applications
+ * Follows atomic design principles with semantic HTML optimization
+ * Can be used in Server Components for better SEO and performance
  */
 
 import React from 'react'
@@ -11,36 +13,25 @@ import { cn } from '../../utils/cn'
 const textVariants = cva('', {
   variants: {
     variant: {
-      // Display variants
-      displayLarge: 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
-      displayMedium: 'scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl',
-      displaySmall: 'scroll-m-20 text-2xl font-semibold tracking-tight lg:text-3xl',
+      // Headings - semantic HTML optimized
+      h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+      h2: 'scroll-m-20 text-3xl font-semibold tracking-tight lg:text-4xl',
+      h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
+      h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
+      h5: 'scroll-m-20 text-lg font-semibold tracking-tight',
+      h6: 'scroll-m-20 text-base font-semibold tracking-tight',
       
-      // Headline variants
-      headlineLarge: 'scroll-m-20 text-xl font-semibold tracking-tight lg:text-2xl',
-      headlineMedium: 'scroll-m-20 text-lg font-semibold tracking-tight lg:text-xl',
-      headlineSmall: 'scroll-m-20 text-base font-semibold tracking-tight lg:text-lg',
+      // Body text
+      body: 'text-base leading-7',
+      large: 'text-lg leading-7',
+      small: 'text-sm leading-6',
+      xs: 'text-xs leading-5',
       
-      // Title variants
-      titleLarge: 'scroll-m-20 text-base font-medium tracking-tight',
-      titleMedium: 'scroll-m-20 text-sm font-medium tracking-tight',
-      titleSmall: 'scroll-m-20 text-xs font-medium tracking-tight',
-      
-      // Body variants
-      bodyLarge: 'text-base leading-7',
-      bodyMedium: 'text-sm leading-6',
-      bodySmall: 'text-xs leading-5',
-      
-      // Label variants
-      labelLarge: 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-      labelMedium: 'text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-      labelSmall: 'text-xs font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-      
-      // Utility variants
-      lead: 'text-xl text-muted-foreground',
-      large: 'text-lg font-semibold',
-      small: 'text-sm font-medium leading-none',
+      // Special variants
+      lead: 'text-xl leading-7 text-muted-foreground',
       muted: 'text-sm text-muted-foreground',
+      caption: 'text-xs text-muted-foreground',
+      label: 'text-sm font-medium leading-none',
     },
     color: {
       default: 'text-foreground',
@@ -70,7 +61,7 @@ const textVariants = cva('', {
     },
   },
   defaultVariants: {
-    variant: 'bodyMedium',
+    variant: 'body',
     color: 'default',
     align: 'left',
   },
@@ -107,16 +98,12 @@ const AtomicText = React.forwardRef<HTMLElement, AtomicTextProps>(
   ) => {
     const Comp = asChild ? Slot : as
 
-    // Auto-select semantic HTML element based on variant
+    // Auto-select semantic HTML element based on variant for better SEO
     let semanticElement = as
     if (!asChild && as === 'p') {
-      if (variant?.includes('display')) {
-        semanticElement = 'h1'
-      } else if (variant?.includes('headline')) {
-        semanticElement = variant === 'headlineLarge' ? 'h2' : variant === 'headlineMedium' ? 'h3' : 'h4'
-      } else if (variant?.includes('title')) {
-        semanticElement = variant === 'titleLarge' ? 'h5' : 'h6'
-      } else if (variant?.includes('label')) {
+      if (variant === 'h1' || variant === 'h2' || variant === 'h3' || variant === 'h4' || variant === 'h5' || variant === 'h6') {
+        semanticElement = variant
+      } else if (variant === 'label') {
         semanticElement = 'label'
       }
     }

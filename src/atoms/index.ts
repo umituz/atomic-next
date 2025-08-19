@@ -27,6 +27,12 @@ export {
   type AtomicAvatarProps,
 } from './display/atomic-avatar'
 
+export {
+  AtomicImage,
+  imageVariants,
+  type AtomicImageProps,
+} from './display/atomic-image'
+
 // Input Components
 export {
   AtomicInput,
@@ -51,3 +57,10 @@ export {
   badgeVariants,
   type AtomicBadgeProps,
 } from './feedback/atomic-badge'
+
+// Navigation Components
+export {
+  AtomicLink,
+  linkVariants,
+  type AtomicLinkProps,
+} from './navigation/atomic-link'

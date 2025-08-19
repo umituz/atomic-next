@@ -1,6 +1,9 @@
+'use client'
+
 /**
  * AtomicSpinner Component
- * A loading spinner component following atomic design principles
+ * A loading spinner component for Next.js applications
+ * Uses CSS animations and requires client-side rendering
  */
 
 import React from 'react'

@@ -1,6 +1,9 @@
+'use client'
+
 /**
  * AtomicInput Component
- * A versatile input component following atomic design principles
+ * A versatile interactive input component for Next.js applications
+ * Follows atomic design principles with full client-side interactivity
  */
 
 import React from 'react'
