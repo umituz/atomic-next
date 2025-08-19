@@ -64,3 +64,32 @@ export {
   linkVariants,
   type AtomicLinkProps,
 } from './navigation/atomic-link'
+
+// Layout Components
+export {
+  AtomicDiv,
+  type AtomicDivProps,
+} from './layout/atomic-div'
+
+// Display Components (Additional)
+export {
+  AtomicIcon,
+  type AtomicIconProps,
+} from './display/atomic-icon'
+
+// Feedback Components (Additional)
+export {
+  AtomicTag,
+  type AtomicTagProps,
+} from './feedback/atomic-tag'
+
+// Input Components (Additional)
+export {
+  AtomicCheckbox,
+  type AtomicCheckboxProps,
+} from './inputs/atomic-checkbox'
+
+export {
+  AtomicSwitch,
+  type AtomicSwitchProps,
+} from './inputs/atomic-switch'
