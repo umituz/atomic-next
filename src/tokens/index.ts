@@ -1,9 +1,4 @@
-/**
- * Design Tokens Export
- * All design tokens for the Atomic Next design system
- */
 
-// Colors
 export {
   AtomicColors,
   ColorUtils,
@@ -12,7 +7,6 @@ export {
   type AtomicColorValue,
 } from './colors/atomic-colors'
 
-// Spacing
 export {
   AtomicSpacing,
   SpacingUtils,
@@ -21,7 +15,6 @@ export {
   type AtomicSpacingValue,
 } from './spacing/atomic-spacing'
 
-// Typography
 export {
   AtomicTypography,
   TypographyUtils,
@@ -35,7 +28,6 @@ export {
   type AtomicTextStyle,
 } from './typography/atomic-typography'
 
-// Shadows
 export {
   AtomicShadows,
   ShadowUtils,
@@ -44,7 +36,6 @@ export {
   type AtomicShadowValue,
 } from './shadows/atomic-shadows'
 
-// Borders
 export {
   AtomicBorders,
   BorderUtils,
@@ -54,7 +45,6 @@ export {
   type AtomicBorderStyle,
 } from './borders/atomic-borders'
 
-// Animations
 export {
   AtomicAnimations,
   AnimationUtils,
@@ -66,7 +56,6 @@ export {
   type AtomicAnimationRotate,
 } from './animations/atomic-animations'
 
-// Enums
 export {
   AtomicSize,
   AtomicColorVariant,
@@ -107,10 +96,6 @@ export {
   type AtomicThemeModeType,
 } from './enums/atomic-enums'
 
-/**
- * Combined CSS Custom Properties
- * All design tokens as CSS custom properties for use in CSS
- */
 import { AtomicColorsCss } from './colors/atomic-colors'
 import { AtomicSpacingCss } from './spacing/atomic-spacing' 
 import { AtomicTypographyCss } from './typography/atomic-typography'

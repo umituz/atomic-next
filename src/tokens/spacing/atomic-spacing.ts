@@ -1,24 +1,20 @@
-/**
- * Atomic Design System Spacing Tokens
- * Based on 8-point grid system
- */
 
 export const AtomicSpacing = {
-  // ===== BASE UNIT =====
+  
   unit: 8,
 
-  // ===== SPACING SCALE =====
-  xxs: 4,   // 0.5 * unit
-  xs: 8,    // 1 * unit  
-  sm: 12,   // 1.5 * unit
-  md: 16,   // 2 * unit
-  lg: 24,   // 3 * unit
-  xl: 32,   // 4 * unit
-  xxl: 40,  // 5 * unit
-  xxxl: 48, // 6 * unit
-  huge: 64, // 8 * unit
+  
+  xxs: 4,
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 40,
+  xxxl: 48,
+  huge: 64,
 
-  // ===== COMPONENT SPACING =====
+  
   buttonPaddingX: 16,
   buttonPaddingY: 12,
   
@@ -35,34 +31,23 @@ export const AtomicSpacing = {
   sectionPadding: 32,
 } as const
 
-/**
- * Spacing utilities for CSS classes and inline styles
- */
 export const SpacingUtils = {
-  /**
-   * Get spacing value by name
-   */
+  
   get: (name: keyof typeof AtomicSpacing): number => {
     return AtomicSpacing[name]
   },
 
-  /**
-   * Get spacing in rem units (assuming 16px base font size)
-   */
+  
   rem: (name: keyof typeof AtomicSpacing): string => {
     return `${AtomicSpacing[name] / 16}rem`
   },
 
-  /**
-   * Get spacing in px units
-   */
+  
   px: (name: keyof typeof AtomicSpacing): string => {
     return `${AtomicSpacing[name]}px`
   },
 
-  /**
-   * Create margin styles
-   */
+  
   margin: {
     all: (value: keyof typeof AtomicSpacing) => ({ margin: SpacingUtils.px(value) }),
     top: (value: keyof typeof AtomicSpacing) => ({ marginTop: SpacingUtils.px(value) }),
@@ -79,9 +64,7 @@ export const SpacingUtils = {
     }),
   },
 
-  /**
-   * Create padding styles
-   */
+  
   padding: {
     all: (value: keyof typeof AtomicSpacing) => ({ padding: SpacingUtils.px(value) }),
     top: (value: keyof typeof AtomicSpacing) => ({ paddingTop: SpacingUtils.px(value) }),
@@ -98,15 +81,10 @@ export const SpacingUtils = {
     }),
   },
 
-  /**
-   * Create gap styles (for flexbox/grid)
-   */
+  
   gap: (value: keyof typeof AtomicSpacing) => ({ gap: SpacingUtils.px(value) }),
 }
 
-/**
- * CSS Custom Properties for spacing
- */
 export const AtomicSpacingCss = {
   '--atomic-spacing-unit': `${AtomicSpacing.unit}px`,
   '--atomic-spacing-xxs': `${AtomicSpacing.xxs}px`,
@@ -119,7 +97,7 @@ export const AtomicSpacingCss = {
   '--atomic-spacing-xxxl': `${AtomicSpacing.xxxl}px`,
   '--atomic-spacing-huge': `${AtomicSpacing.huge}px`,
   
-  // Component spacing
+  
   '--atomic-button-padding-x': `${AtomicSpacing.buttonPaddingX}px`,
   '--atomic-button-padding-y': `${AtomicSpacing.buttonPaddingY}px`,
   '--atomic-card-padding': `${AtomicSpacing.cardPadding}px`,
@@ -132,6 +110,5 @@ export const AtomicSpacingCss = {
   '--atomic-section-padding': `${AtomicSpacing.sectionPadding}px`,
 } as const
 
-// Type definitions
 export type AtomicSpacingKey = keyof typeof AtomicSpacing
 export type AtomicSpacingValue = typeof AtomicSpacing[AtomicSpacingKey]

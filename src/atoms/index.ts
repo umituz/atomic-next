@@ -1,16 +1,10 @@
-/**
- * Atomic Components Export
- * All atomic-level components
- */
 
-// Buttons
 export {
   AtomicButton,
   buttonVariants,
   type AtomicButtonProps,
 } from './buttons/atomic-button'
 
-// Display Components
 export {
   AtomicText,
   textVariants,
@@ -33,14 +27,12 @@ export {
   type AtomicImageProps,
 } from './display/atomic-image'
 
-// Input Components
 export {
   AtomicInput,
   inputVariants,
   type AtomicInputProps,
 } from './inputs/atomic-input'
 
-// Feedback Components
 export {
   AtomicSpinner,
   AtomicButtonSpinner,
@@ -58,32 +50,27 @@ export {
   type AtomicBadgeProps,
 } from './feedback/atomic-badge'
 
-// Navigation Components
 export {
   AtomicLink,
   linkVariants,
   type AtomicLinkProps,
 } from './navigation/atomic-link'
 
-// Layout Components
 export {
   AtomicDiv,
   type AtomicDivProps,
 } from './layout/atomic-div'
 
-// Display Components (Additional)
 export {
   AtomicIcon,
   type AtomicIconProps,
 } from './display/atomic-icon'
 
-// Feedback Components (Additional)
 export {
   AtomicTag,
   type AtomicTagProps,
 } from './feedback/atomic-tag'
 
-// Input Components (Additional)
 export {
   AtomicCheckbox,
   type AtomicCheckboxProps,

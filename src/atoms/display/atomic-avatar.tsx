@@ -1,7 +1,3 @@
-/**
- * AtomicAvatar Component
- * A versatile avatar component following atomic design principles
- */
 
 import React from 'react'
 import * as AvatarPrimitive from '@radix-ui/react-avatar'
@@ -53,19 +49,12 @@ const avatarFallbackVariants = cva(
 export interface AtomicAvatarProps
   extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,
     VariantProps<typeof avatarVariants> {
-  /** Image source URL */
   src?: string
-  /** Alt text for the image */
   alt?: string
-  /** Fallback text (usually initials) */
   fallback?: string
-  /** Custom fallback element */
   fallbackElement?: React.ReactNode
-  /** Show online status indicator */
   showStatus?: boolean
-  /** Online status */
   isOnline?: boolean
-  /** Custom status color */
   statusColor?: string
 }
 
@@ -88,7 +77,6 @@ const AtomicAvatar = React.forwardRef<
     },
     ref
   ) => {
-    // Generate initials from alt text if no fallback provided
     const generateInitials = (name?: string) => {
       if (!name) return '?'
       
@@ -102,7 +90,7 @@ const AtomicAvatar = React.forwardRef<
 
     const initials = fallback || generateInitials(alt)
     
-    // Status indicator size based on avatar size
+    
     const statusSize = {
       xs: 'h-1.5 w-1.5',
       sm: 'h-2 w-2',
@@ -148,7 +136,6 @@ const AtomicAvatar = React.forwardRef<
 )
 AtomicAvatar.displayName = 'AtomicAvatar'
 
-// Export individual components for advanced usage
 const AtomicAvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>

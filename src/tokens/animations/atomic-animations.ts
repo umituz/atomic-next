@@ -1,10 +1,6 @@
-/**
- * Atomic Design System Animation Tokens
- * Consistent motion and transitions
- */
 
 export const AtomicAnimations = {
-  // ===== TRANSITION DURATION =====
+  
   duration: {
     instant: '0ms',
     fast: '150ms',
@@ -14,7 +10,7 @@ export const AtomicAnimations = {
     slowest: '700ms',
   },
 
-  // ===== TRANSITION TIMING FUNCTIONS =====
+  
   easing: {
     linear: 'linear',
     ease: 'ease',
@@ -22,19 +18,19 @@ export const AtomicAnimations = {
     easeOut: 'ease-out',
     easeInOut: 'ease-in-out',
     
-    // Custom cubic-bezier functions
+    
     smooth: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
     snappy: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
     bounce: 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',
     elastic: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     
-    // Material Design easing
+    
     standard: 'cubic-bezier(0.4, 0, 0.2, 1)',
     decelerate: 'cubic-bezier(0, 0, 0.2, 1)',
     accelerate: 'cubic-bezier(0.4, 0, 1, 1)',
   },
 
-  // ===== SCALE TRANSFORMS =====
+  
   scale: {
     none: '1',
     xs: '1.025',
@@ -44,7 +40,7 @@ export const AtomicAnimations = {
     xl: '1.25',
   },
 
-  // ===== ROTATE TRANSFORMS =====
+  
   rotate: {
     none: '0deg',
     quarter: '90deg',
@@ -54,13 +50,8 @@ export const AtomicAnimations = {
   },
 } as const
 
-/**
- * Animation utility functions
- */
 export const AnimationUtils = {
-  /**
-   * Create transition style
-   */
+  
   transition: (config: {
     property?: string | string[]
     duration?: keyof typeof AtomicAnimations.duration
@@ -79,9 +70,7 @@ export const AnimationUtils = {
     }
   },
 
-  /**
-   * Create transform style
-   */
+  
   transform: (config: {
     scale?: keyof typeof AtomicAnimations.scale
     rotate?: keyof typeof AtomicAnimations.rotate
@@ -116,23 +105,17 @@ export const AnimationUtils = {
     }
   },
 
-  /**
-   * Get animation duration value
-   */
+  
   duration: (name: keyof typeof AtomicAnimations.duration): string => {
     return AtomicAnimations.duration[name]
   },
 
-  /**
-   * Get animation easing value
-   */
+  
   easing: (name: keyof typeof AtomicAnimations.easing): string => {
     return AtomicAnimations.easing[name]
   },
 
-  /**
-   * Create keyframe animation
-   */
+  
   keyframes: (name: string, frames: Record<string, React.CSSProperties>): string => {
     const keyframeString = Object.entries(frames)
       .map(([key, styles]) => {
@@ -147,11 +130,8 @@ export const AnimationUtils = {
   },
 }
 
-/**
- * Predefined animation presets
- */
 export const AtomicAnimationPresets = {
-  // Fade animations
+  
   fadeIn: AnimationUtils.transition({
     property: 'opacity',
     duration: 'normal',
@@ -164,7 +144,7 @@ export const AtomicAnimationPresets = {
     easing: 'easeIn'
   }),
 
-  // Scale animations
+  
   scaleIn: {
     ...AnimationUtils.transition({
       property: 'transform',
@@ -183,7 +163,7 @@ export const AtomicAnimationPresets = {
     transform: 'scale(0.95)'
   },
 
-  // Slide animations
+  
   slideInUp: {
     ...AnimationUtils.transition({
       property: 'transform',
@@ -202,7 +182,7 @@ export const AtomicAnimationPresets = {
     transform: 'translateY(0)'
   },
 
-  // Button interactions
+  
   buttonHover: {
     ...AnimationUtils.transition({
       property: ['background-color', 'border-color', 'color', 'box-shadow', 'transform'],
@@ -221,7 +201,7 @@ export const AtomicAnimationPresets = {
     transform: 'translateY(0)'
   },
 
-  // Loading animations
+  
   spin: {
     animation: 'spin 1s linear infinite'
   },
@@ -235,11 +215,8 @@ export const AtomicAnimationPresets = {
   },
 }
 
-/**
- * CSS Custom Properties for animations
- */
 export const AtomicAnimationsCss = {
-  // Durations
+  
   '--atomic-duration-instant': AtomicAnimations.duration.instant,
   '--atomic-duration-fast': AtomicAnimations.duration.fast,
   '--atomic-duration-normal': AtomicAnimations.duration.normal,
@@ -247,7 +224,7 @@ export const AtomicAnimationsCss = {
   '--atomic-duration-slower': AtomicAnimations.duration.slower,
   '--atomic-duration-slowest': AtomicAnimations.duration.slowest,
   
-  // Easing functions
+  
   '--atomic-ease-linear': AtomicAnimations.easing.linear,
   '--atomic-ease': AtomicAnimations.easing.ease,
   '--atomic-ease-in': AtomicAnimations.easing.easeIn,
@@ -261,7 +238,7 @@ export const AtomicAnimationsCss = {
   '--atomic-ease-decelerate': AtomicAnimations.easing.decelerate,
   '--atomic-ease-accelerate': AtomicAnimations.easing.accelerate,
   
-  // Scale values
+  
   '--atomic-scale-none': AtomicAnimations.scale.none,
   '--atomic-scale-xs': AtomicAnimations.scale.xs,
   '--atomic-scale-sm': AtomicAnimations.scale.sm,
@@ -270,7 +247,6 @@ export const AtomicAnimationsCss = {
   '--atomic-scale-xl': AtomicAnimations.scale.xl,
 } as const
 
-// Type definitions
 export type AtomicAnimationDuration = keyof typeof AtomicAnimations.duration
 export type AtomicAnimationEasing = keyof typeof AtomicAnimations.easing
 export type AtomicAnimationScale = keyof typeof AtomicAnimations.scale

@@ -2,20 +2,16 @@ import React from 'react';
 import { LucideIcon } from 'lucide-react';
 import { cn } from '../../utils';
 
-// Variant types
 type TagVariant = 
   | 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'
   | 'outline' | 'ghost' | 'solid';
 
-// Size types
 type TagSize = 'xs' | 'sm' | 'md' | 'lg';
 
-// Color types
 type Color = 
   | 'slate' | 'gray' | 'zinc' | 'red' | 'orange' | 'yellow' 
   | 'green' | 'blue' | 'indigo' | 'purple' | 'pink';
 
-// Spacing types
 type Spacing = 
   | '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '3.5' | '4' | '5' | '6' | '7' | '8';
 
@@ -29,31 +25,18 @@ type SpacingObject = {
 };
 
 export interface AtomicTagProps extends React.HTMLAttributes<HTMLSpanElement> {
-  // Content
   children: React.ReactNode;
-  
-  // Appearance
   variant?: TagVariant;
   size?: TagSize;
   color?: Color;
-  
-  // Icons
   leftIcon?: LucideIcon;
   rightIcon?: LucideIcon;
-  
-  // Spacing
   p?: Spacing | SpacingObject;
   m?: Spacing | SpacingObject;
-  
-  // Interactive
   clickable?: boolean;
   removable?: boolean;
   onRemove?: () => void;
-  
-  // State
   disabled?: boolean;
-  
-  // HTML tag
   as?: 'span' | 'div' | 'button';
 }
 
@@ -97,7 +80,7 @@ const getVariantClasses = (variant: TagVariant, color?: Color): string => {
       return `bg-${baseColor}-100 text-${baseColor}-700 border-transparent`;
     case 'solid':
       return `bg-${baseColor}-500 text-white border-${baseColor}-500`;
-    default: // default
+    default:
       return `bg-gray-100 text-gray-800 border-gray-200 border`;
   }
 };
@@ -149,20 +132,11 @@ export const AtomicTag = React.forwardRef<HTMLElement, AtomicTagProps>(
     const iconSize = getIconSize(size);
     
     const classes = cn(
-      // Base styles
       'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-200',
-      
-      // Variant styles
       getVariantClasses(variant, color),
-      
-      // Size styles
       getSizeClasses(size),
-      
-      // Spacing (override defaults if provided)
       getSpacingClass(p, 'p'),
       getSpacingClass(m, 'm'),
-      
-      // Interactive states
       clickable && !disabled && [
         'cursor-pointer',
         'hover:opacity-80',
@@ -171,7 +145,6 @@ export const AtomicTag = React.forwardRef<HTMLElement, AtomicTagProps>(
       
       removable && !disabled && 'pr-1',
       
-      // Disabled state
       disabled && 'opacity-50 cursor-not-allowed',
       
       className

@@ -1,9 +1,4 @@
-/**
- * Atomic Design System Enums
- * Common enumeration types used across the design system
- */
 
-// ===== SIZE VARIANTS =====
 export enum AtomicSize {
   XS = 'xs',
   SM = 'sm',
@@ -12,7 +7,6 @@ export enum AtomicSize {
   XL = 'xl',
 }
 
-// ===== COLOR VARIANTS =====
 export enum AtomicColorVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
@@ -23,7 +17,6 @@ export enum AtomicColorVariant {
   GRAY = 'gray',
 }
 
-// ===== BUTTON VARIANTS =====
 export enum AtomicButtonVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
@@ -33,7 +26,6 @@ export enum AtomicButtonVariant {
   DESTRUCTIVE = 'destructive',
 }
 
-// ===== INPUT VARIANTS =====
 export enum AtomicInputVariant {
   DEFAULT = 'default',
   FILLED = 'filled',
@@ -41,7 +33,6 @@ export enum AtomicInputVariant {
   UNDERLINED = 'underlined',
 }
 
-// ===== CARD VARIANTS =====
 export enum AtomicCardVariant {
   DEFAULT = 'default',
   ELEVATED = 'elevated',
@@ -49,7 +40,6 @@ export enum AtomicCardVariant {
   FILLED = 'filled',
 }
 
-// ===== LOADING STATES =====
 export enum AtomicLoadingState {
   IDLE = 'idle',
   LOADING = 'loading',
@@ -57,7 +47,6 @@ export enum AtomicLoadingState {
   ERROR = 'error',
 }
 
-// ===== STATUS TYPES =====
 export enum AtomicStatus {
   ACTIVE = 'active',
   INACTIVE = 'inactive',
@@ -66,7 +55,6 @@ export enum AtomicStatus {
   ARCHIVED = 'archived',
 }
 
-// ===== ALERT TYPES =====
 export enum AtomicAlertType {
   INFO = 'info',
   SUCCESS = 'success',
@@ -74,7 +62,6 @@ export enum AtomicAlertType {
   ERROR = 'error',
 }
 
-// ===== MODAL SIZES =====
 export enum AtomicModalSize {
   SM = 'sm',
   MD = 'md',
@@ -83,7 +70,6 @@ export enum AtomicModalSize {
   FULL = 'full',
 }
 
-// ===== TEXT VARIANTS =====
 export enum AtomicTextVariant {
   DISPLAY_LARGE = 'displayLarge',
   DISPLAY_MEDIUM = 'displayMedium',
@@ -102,7 +88,6 @@ export enum AtomicTextVariant {
   LABEL_SMALL = 'labelSmall',
 }
 
-// ===== POSITION TYPES =====
 export enum AtomicPosition {
   TOP = 'top',
   TOP_LEFT = 'top-left',
@@ -115,7 +100,6 @@ export enum AtomicPosition {
   CENTER = 'center',
 }
 
-// ===== ALIGNMENT TYPES =====
 export enum AtomicAlignment {
   LEFT = 'left',
   CENTER = 'center',
@@ -123,13 +107,11 @@ export enum AtomicAlignment {
   JUSTIFY = 'justify',
 }
 
-// ===== ORIENTATION TYPES =====
 export enum AtomicOrientation {
   HORIZONTAL = 'horizontal',
   VERTICAL = 'vertical',
 }
 
-// ===== DIRECTION TYPES =====
 export enum AtomicDirection {
   UP = 'up',
   DOWN = 'down',
@@ -137,14 +119,12 @@ export enum AtomicDirection {
   RIGHT = 'right',
 }
 
-// ===== ANIMATION STATES =====
 export enum AtomicAnimationState {
   ENTER = 'enter',
   EXIT = 'exit',
   IDLE = 'idle',
 }
 
-// ===== FORM FIELD STATES =====
 export enum AtomicFormFieldState {
   DEFAULT = 'default',
   FOCUS = 'focus',
@@ -153,26 +133,22 @@ export enum AtomicFormFieldState {
   DISABLED = 'disabled',
 }
 
-// ===== BREAKPOINTS =====
 export enum AtomicBreakpoint {
-  XS = 'xs',   // 0px
-  SM = 'sm',   // 640px
-  MD = 'md',   // 768px
-  LG = 'lg',   // 1024px
-  XL = 'xl',   // 1280px
-  XXL = 'xxl', // 1536px
+  XS = 'xs',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
+  XL = 'xl',
+  XXL = 'xxl',
 }
 
-// ===== THEME MODES =====
 export enum AtomicThemeMode {
   LIGHT = 'light',
   DARK = 'dark',
   SYSTEM = 'system',
 }
 
-// ===== UTILITY TYPES =====
 
-// Union types for easier usage
 export type AtomicSizeType = keyof typeof AtomicSize
 export type AtomicColorVariantType = keyof typeof AtomicColorVariant
 export type AtomicButtonVariantType = keyof typeof AtomicButtonVariant
@@ -192,39 +168,28 @@ export type AtomicFormFieldStateType = keyof typeof AtomicFormFieldState
 export type AtomicBreakpointType = keyof typeof AtomicBreakpoint
 export type AtomicThemeModeType = keyof typeof AtomicThemeMode
 
-// Utility functions for enum operations
 export const AtomicEnumUtils = {
-  /**
-   * Get all values of an enum as an array
-   */
+  
   getValues: <T extends Record<string, string>>(enumObj: T): string[] => {
     return Object.values(enumObj)
   },
 
-  /**
-   * Get all keys of an enum as an array
-   */
+  
   getKeys: <T extends Record<string, string>>(enumObj: T): string[] => {
     return Object.keys(enumObj)
   },
 
-  /**
-   * Check if a value exists in an enum
-   */
+  
   hasValue: <T extends Record<string, string>>(enumObj: T, value: string): value is T[keyof T] => {
     return Object.values(enumObj).includes(value)
   },
 
-  /**
-   * Check if a key exists in an enum
-   */
+  
   hasKey: <T extends Record<string, string>>(enumObj: T, key: string): key is string => {
     return Object.keys(enumObj).includes(key)
   },
 
-  /**
-   * Get enum entries as [key, value] pairs
-   */
+  
   getEntries: <T extends Record<string, string>>(enumObj: T): [string, string][] => {
     return Object.entries(enumObj)
   },

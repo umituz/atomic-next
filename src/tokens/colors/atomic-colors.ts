@@ -1,10 +1,6 @@
-/**
- * Atomic Design System Color Tokens
- * Following modern color API with CSS custom properties
- */
 
 export const AtomicColors = {
-  // ===== BRAND COLORS =====
+  
   primary: '#8B5CF6',
   primaryLight: '#A78BFA',
   primaryDark: '#7C3AED',
@@ -17,7 +13,7 @@ export const AtomicColors = {
   accentLight: '#FBBF24',
   accentDark: '#D97706',
 
-  // ===== NEUTRAL COLORS =====
+  
   gray50: '#FAFAFA',
   gray100: '#F4F4F5',
   gray200: '#E4E4E7',
@@ -29,7 +25,7 @@ export const AtomicColors = {
   gray800: '#27272A',
   gray900: '#18181B',
 
-  // ===== SEMANTIC COLORS =====
+  
   success: '#10B981',
   successLight: '#34D399',
   successDark: '#059669',
@@ -46,33 +42,28 @@ export const AtomicColors = {
   infoLight: '#60A5FA',
   infoDark: '#2563EB',
 
-  // ===== SURFACE COLORS =====
+  
   background: '#FFFFFF',
   backgroundSecondary: '#F9FAFB',
   surface: '#FFFFFF',
   surfaceSecondary: '#F3F4F6',
   
-  // ===== TEXT COLORS =====
+  
   textPrimary: '#18181B',
   textSecondary: '#52525B',
   textTertiary: '#A1A1AA',
   textDisabled: '#D4D4D8',
   textInverse: '#FFFFFF',
 
-  // ===== UTILITY COLORS =====
+  
   transparent: 'transparent',
   current: 'currentColor',
   black: '#000000',
   white: '#FFFFFF',
 } as const
 
-/**
- * Color utility functions
- */
 export const ColorUtils = {
-  /**
-   * Add alpha (opacity) to hex color
-   */
+  
   withAlpha: (color: string, alpha: number): string => {
     if (!color.startsWith('#') || (color.length !== 7 && color.length !== 4)) {
       throw new Error('Color must be a valid hex color')
@@ -86,9 +77,7 @@ export const ColorUtils = {
     return color + alphaHex
   },
 
-  /**
-   * Convert hex to RGB values
-   */
+  
   hexToRgb: (hex: string): { r: number; g: number; b: number } | null => {
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     return result ? {
@@ -98,9 +87,7 @@ export const ColorUtils = {
     } : null
   },
 
-  /**
-   * Convert hex to HSL values
-   */
+  
   hexToHsl: (hex: string): { h: number; s: number; l: number } | null => {
     const rgb = ColorUtils.hexToRgb(hex)
     if (!rgb) return null
@@ -116,7 +103,7 @@ export const ColorUtils = {
     const l = (max + min) / 2
 
     if (max === min) {
-      h = s = 0 // achromatic
+      h = s = 0
     } else {
       const d = max - min
       s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
@@ -137,11 +124,8 @@ export const ColorUtils = {
   },
 }
 
-/**
- * CSS Custom Properties for colors (for use in CSS)
- */
 export const AtomicColorsCss = {
-  // Brand Colors
+  
   '--atomic-primary': AtomicColors.primary,
   '--atomic-primary-light': AtomicColors.primaryLight,
   '--atomic-primary-dark': AtomicColors.primaryDark,
@@ -154,7 +138,7 @@ export const AtomicColorsCss = {
   '--atomic-accent-light': AtomicColors.accentLight,
   '--atomic-accent-dark': AtomicColors.accentDark,
 
-  // Neutral Colors
+  
   '--atomic-gray-50': AtomicColors.gray50,
   '--atomic-gray-100': AtomicColors.gray100,
   '--atomic-gray-200': AtomicColors.gray200,
@@ -166,7 +150,7 @@ export const AtomicColorsCss = {
   '--atomic-gray-800': AtomicColors.gray800,
   '--atomic-gray-900': AtomicColors.gray900,
 
-  // Semantic Colors
+  
   '--atomic-success': AtomicColors.success,
   '--atomic-success-light': AtomicColors.successLight,
   '--atomic-success-dark': AtomicColors.successDark,
@@ -183,13 +167,13 @@ export const AtomicColorsCss = {
   '--atomic-info-light': AtomicColors.infoLight,
   '--atomic-info-dark': AtomicColors.infoDark,
 
-  // Surface Colors
+  
   '--atomic-background': AtomicColors.background,
   '--atomic-background-secondary': AtomicColors.backgroundSecondary,
   '--atomic-surface': AtomicColors.surface,
   '--atomic-surface-secondary': AtomicColors.surfaceSecondary,
   
-  // Text Colors
+  
   '--atomic-text-primary': AtomicColors.textPrimary,
   '--atomic-text-secondary': AtomicColors.textSecondary,
   '--atomic-text-tertiary': AtomicColors.textTertiary,
@@ -197,6 +181,5 @@ export const AtomicColorsCss = {
   '--atomic-text-inverse': AtomicColors.textInverse,
 } as const
 
-// Type definitions
 export type AtomicColor = keyof typeof AtomicColors
 export type AtomicColorValue = typeof AtomicColors[AtomicColor]

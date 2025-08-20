@@ -1,10 +1,5 @@
 'use client'
 
-/**
- * AtomicButton Component
- * A versatile interactive button component for Next.js applications
- * Follows atomic design principles with full client-side interactivity
- */
 
 import React from 'react'
 import { Slot } from '@radix-ui/react-slot'

@@ -1,10 +1,5 @@
 'use client'
 
-/**
- * AtomicSpinner Component
- * A loading spinner component for Next.js applications
- * Uses CSS animations and requires client-side rendering
- */
 
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -95,7 +90,6 @@ const AtomicSpinner = React.forwardRef<SVGSVGElement, AtomicSpinnerProps>(
 )
 AtomicSpinner.displayName = 'AtomicSpinner'
 
-// Preset spinner components for common use cases
 export const AtomicButtonSpinner = React.forwardRef<
   SVGSVGElement,
   Omit<AtomicSpinnerProps, 'size' | 'color'>

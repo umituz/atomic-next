@@ -1,7 +1,3 @@
-/**
- * AtomicBadge Component
- * A badge component for status indicators and labels
- */
 
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -155,7 +151,6 @@ const AtomicBadge = React.forwardRef<HTMLDivElement, AtomicBadgeProps>(
 )
 AtomicBadge.displayName = 'AtomicBadge'
 
-// Preset badge components for common use cases
 export const AtomicStatusBadge = React.forwardRef<
   HTMLDivElement,
   Omit<AtomicBadgeProps, 'dot'> & { status: 'online' | 'offline' | 'busy' | 'away' }

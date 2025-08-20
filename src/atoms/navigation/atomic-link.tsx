@@ -1,8 +1,3 @@
-/**
- * AtomicLink Component
- * A Next.js optimized link component following atomic design principles
- * Server-side safe wrapper around Next.js Link component
- */
 
 import Link from 'next/link'
 import { cn } from '../../utils/cn'
@@ -45,41 +40,12 @@ export interface AtomicLinkProps
   extends Omit<React.ComponentProps<typeof Link>, 'className'>,
     VariantProps<typeof linkVariants> {
   className?: string
-  /** External link - opens in new tab */
   external?: boolean
-  /** Show external link icon */
   showExternalIcon?: boolean
-  /** Disable prefetching */
   prefetch?: boolean
-  /** Custom external link icon */
   externalIcon?: React.ReactNode
 }
 
-/**
- * AtomicLink - Next.js optimized link component
- * 
- * A wrapper around Next.js Link component with atomic design variants.
- * Provides consistent styling and automatic prefetching for internal links.
- * Can be used in both Server and Client Components.
- * 
- * @example
- * <AtomicLink 
- *   href="/about" 
- *   variant="primary"
- *   size="lg"
- * >
- *   About Us
- * </AtomicLink>
- * 
- * @example
- * <AtomicLink 
- *   href="https://example.com" 
- *   external
- *   showExternalIcon
- * >
- *   External Link
- * </AtomicLink>
- */
 export const AtomicLink = React.forwardRef<
   React.ElementRef<typeof Link>,
   AtomicLinkProps
@@ -96,7 +62,7 @@ export const AtomicLink = React.forwardRef<
   href,
   ...props
 }, ref) => {
-  // Check if href is external URL
+  
   const isExternalUrl = typeof href === 'string' && (href.startsWith('http') || href.startsWith('//'))
   const shouldBeExternal = external || isExternalUrl
   

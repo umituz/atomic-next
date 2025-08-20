@@ -2,15 +2,12 @@ import React from 'react';
 import { Check, Minus } from 'lucide-react';
 import { cn } from '../../utils';
 
-// Size types
 type CheckboxSize = 'sm' | 'md' | 'lg';
 
-// Color types
 type Color = 
   | 'slate' | 'gray' | 'zinc' | 'red' | 'orange' | 'yellow' 
   | 'green' | 'blue' | 'indigo' | 'purple' | 'pink';
 
-// Spacing types
 type Spacing = 
   | '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '3.5' | '4' | '5' | '6' | '7' | '8';
 
@@ -24,28 +21,17 @@ type SpacingObject = {
 };
 
 export interface AtomicCheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'color' | 'onChange'> {
-  // State
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
-  
-  // Appearance
   size?: CheckboxSize;
   color?: Color;
-  
-  // Spacing
   p?: Spacing | SpacingObject;
   m?: Spacing | SpacingObject;
-  
-  // Label
   label?: string;
   description?: string;
-  
-  // Error state
   error?: boolean;
   errorMessage?: string;
-  
-  // Events
   onChange?: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
@@ -148,39 +134,21 @@ export const AtomicCheckbox = React.forwardRef<HTMLInputElement, AtomicCheckboxP
     };
 
     const containerClasses = cn(
-      // Base styles
       'relative flex items-start',
-      
-      // Size
       sizeClasses.container,
-      
-      // Spacing
       getSpacingClass(p, 'p'),
       getSpacingClass(m, 'm'),
-      
-      // Disabled
       disabled && 'opacity-50 cursor-not-allowed',
       
       className
     );
 
     const checkboxClasses = cn(
-      // Base styles
       'flex-shrink-0 rounded border-2 bg-white transition-colors duration-200',
-      
-      // Size
       sizeClasses.checkbox,
-      
-      // Colors and states
       colorClasses,
-      
-      // Focus styles
       'focus:outline-none focus:ring-2 focus:ring-offset-2',
-      
-      // Disabled styles
       disabled ? 'cursor-not-allowed' : 'cursor-pointer',
-      
-      // Checked state
       (checked || indeterminate) && !disabled && `bg-${color}-600 border-${color}-600`,
     );
 

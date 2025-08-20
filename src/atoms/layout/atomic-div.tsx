@@ -1,14 +1,12 @@
 import React from 'react';
 import { cn } from '../../utils';
 
-// Layout utility types
 type Display = 'block' | 'inline' | 'inline-block' | 'flex' | 'inline-flex' | 'grid' | 'hidden';
 type AlignItems = 'stretch' | 'start' | 'center' | 'end' | 'baseline';
 type JustifyContent = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';
 type FlexDirection = 'row' | 'row-reverse' | 'col' | 'col-reverse';
 type FlexWrap = 'wrap' | 'wrap-reverse' | 'nowrap';
 
-// Spacing types
 type Spacing = 
   | '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '3.5' | '4' | '5' | '6' | '7' | '8'
   | '9' | '10' | '11' | '12' | '14' | '16' | '20' | '24' | '28' | '32' | '36' | '40' | '44' | '48'
@@ -23,10 +21,8 @@ type SpacingObject = {
   l?: Spacing;
 };
 
-// Size types
 type Size = Spacing | 'auto' | 'full' | 'screen' | 'min' | 'max' | 'fit';
 
-// Color types
 type Color = 
   | 'transparent' | 'current' | 'black' | 'white'
   | 'slate-50' | 'slate-100' | 'slate-200' | 'slate-300' | 'slate-400' | 'slate-500' | 'slate-600' | 'slate-700' | 'slate-800' | 'slate-900'
@@ -46,7 +42,6 @@ type Shadow = 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'inner';
 type Position = 'static' | 'relative' | 'absolute' | 'fixed' | 'sticky';
 
 export interface AtomicDivProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
-  // Layout
   d?: Display;
   align?: AlignItems;
   justify?: JustifyContent;
@@ -55,45 +50,27 @@ export interface AtomicDivProps extends Omit<React.HTMLAttributes<HTMLDivElement
   flexGrow?: number;
   flexShrink?: number;
   order?: number;
-  
-  // Spacing
   p?: Spacing | SpacingObject;
   m?: Spacing | SpacingObject;
-  
-  // Sizing
   w?: Size;
   h?: Size;
   minW?: Size;
   minH?: Size;
   maxW?: Size;
   maxH?: Size;
-  
-  // Background
   bg?: Color;
   bgGradient?: string;
-  
-  // Border
   border?: boolean | string;
   borderColor?: Color;
   rounded?: BorderRadius;
-  
-  // Shadow
   shadow?: Shadow;
-  
-  // Position
   position?: Position;
   top?: Spacing;
   right?: Spacing;
   bottom?: Spacing;
   left?: Spacing;
-  
-  // Interactive
   cursor?: 'auto' | 'default' | 'pointer' | 'wait' | 'text' | 'move' | 'help' | 'not-allowed';
-  
-  // HTML tag
   as?: keyof JSX.IntrinsicElements;
-  
-  // Children
   children?: React.ReactNode;
 }
 
@@ -117,7 +94,6 @@ const getSpacingClass = (spacing: Spacing | SpacingObject | undefined, prefix: s
 
 export const AtomicDiv = React.forwardRef<HTMLDivElement, AtomicDivProps>(
   ({
-    // Layout
     d,
     align,
     justify,
@@ -126,52 +102,33 @@ export const AtomicDiv = React.forwardRef<HTMLDivElement, AtomicDivProps>(
     flexGrow,
     flexShrink,
     order,
-    
-    // Spacing
     p,
     m,
-    
-    // Sizing
     w,
     h,
     minW,
     minH,
     maxW,
     maxH,
-    
-    // Background
     bg,
     bgGradient,
-    
-    // Border
     border,
     borderColor,
     rounded,
-    
-    // Shadow
     shadow,
-    
-    // Position
     position,
     top,
     right,
     bottom,
     left,
-    
-    // Interactive
     cursor,
-    
-    // HTML
     as: Component = 'div',
     className,
     children,
     ...rest
   }, ref) => {
     const classes = cn(
-      // Display
       d && `${d === 'flex' ? 'flex' : d === 'inline-flex' ? 'inline-flex' : d === 'grid' ? 'grid' : d === 'hidden' ? 'hidden' : d === 'inline' ? 'inline' : d === 'inline-block' ? 'inline-block' : 'block'}`,
-      
-      // Flexbox
       align && `items-${align === 'start' ? 'start' : align === 'end' ? 'end' : align === 'center' ? 'center' : align === 'baseline' ? 'baseline' : 'stretch'}`,
       justify && `justify-${justify === 'start' ? 'start' : justify === 'end' ? 'end' : justify === 'center' ? 'center' : justify === 'between' ? 'between' : justify === 'around' ? 'around' : 'evenly'}`,
       flexDir && `flex-${flexDir === 'col' ? 'col' : flexDir === 'col-reverse' ? 'col-reverse' : flexDir === 'row-reverse' ? 'row-reverse' : 'row'}`,
@@ -179,40 +136,26 @@ export const AtomicDiv = React.forwardRef<HTMLDivElement, AtomicDivProps>(
       flexGrow !== undefined && `flex-grow-${flexGrow}`,
       flexShrink !== undefined && `flex-shrink-${flexShrink}`,
       order !== undefined && `order-${order}`,
-      
-      // Spacing
       getSpacingClass(p, 'p'),
       getSpacingClass(m, 'm'),
-      
-      // Sizing
       w && `w-${w}`,
       h && `h-${h}`,
       minW && `min-w-${minW}`,
       minH && `min-h-${minH}`,
       maxW && `max-w-${maxW}`,
       maxH && `max-h-${maxH}`,
-      
-      // Background
       bg && `bg-${bg}`,
       bgGradient,
-      
-      // Border
       border === true && 'border',
       typeof border === 'string' && border,
       borderColor && `border-${borderColor}`,
       rounded && `rounded${rounded === 'none' ? '-none' : rounded === 'full' ? '-full' : rounded === 'sm' ? '-sm' : rounded === 'md' ? '' : `-${rounded}`}`,
-      
-      // Shadow
       shadow && `shadow${shadow === 'none' ? '-none' : shadow === 'sm' ? '-sm' : shadow === 'md' ? '' : shadow === 'inner' ? '-inner' : `-${shadow}`}`,
-      
-      // Position
       position && `${position}`,
       top !== undefined && `top-${top}`,
       right !== undefined && `right-${right}`,
       bottom !== undefined && `bottom-${bottom}`,
       left !== undefined && `left-${left}`,
-      
-      // Interactive
       cursor && `cursor-${cursor}`,
       
       className

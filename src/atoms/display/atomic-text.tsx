@@ -1,9 +1,3 @@
-/**
- * AtomicText Component
- * A server-side typography component for Next.js applications
- * Follows atomic design principles with semantic HTML optimization
- * Can be used in Server Components for better SEO and performance
- */
 
 import React from 'react'
 import { Slot } from '@radix-ui/react-slot'
@@ -13,7 +7,6 @@ import { cn } from '../../utils/cn'
 const textVariants = cva('', {
   variants: {
     variant: {
-      // Headings - semantic HTML optimized
       h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
       h2: 'scroll-m-20 text-3xl font-semibold tracking-tight lg:text-4xl',
       h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
@@ -21,13 +14,11 @@ const textVariants = cva('', {
       h5: 'scroll-m-20 text-lg font-semibold tracking-tight',
       h6: 'scroll-m-20 text-base font-semibold tracking-tight',
       
-      // Body text
       body: 'text-base leading-7',
       large: 'text-lg leading-7',
       small: 'text-sm leading-6',
       xs: 'text-xs leading-5',
       
-      // Special variants
       lead: 'text-xl leading-7 text-muted-foreground',
       muted: 'text-sm text-muted-foreground',
       caption: 'text-xs text-muted-foreground',
@@ -98,7 +89,7 @@ const AtomicText = React.forwardRef<HTMLElement, AtomicTextProps>(
   ) => {
     const Comp = asChild ? Slot : as
 
-    // Auto-select semantic HTML element based on variant for better SEO
+    
     let semanticElement = as
     if (!asChild && as === 'p') {
       if (variant === 'h1' || variant === 'h2' || variant === 'h3' || variant === 'h4' || variant === 'h5' || variant === 'h6') {

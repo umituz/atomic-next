@@ -2,10 +2,8 @@ import React from 'react';
 import { LucideIcon, LucideProps } from 'lucide-react';
 import { cn } from '../../utils';
 
-// Size types
 type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number | string;
 
-// Color types  
 type Color = 
   | 'current' | 'black' | 'white'
   | 'slate-50' | 'slate-100' | 'slate-200' | 'slate-300' | 'slate-400' | 'slate-500' | 'slate-600' | 'slate-700' | 'slate-800' | 'slate-900'
@@ -20,7 +18,6 @@ type Color =
   | 'purple-50' | 'purple-100' | 'purple-200' | 'purple-300' | 'purple-400' | 'purple-500' | 'purple-600' | 'purple-700' | 'purple-800' | 'purple-900'
   | 'pink-50' | 'pink-100' | 'pink-200' | 'pink-300' | 'pink-400' | 'pink-500' | 'pink-600' | 'pink-700' | 'pink-800' | 'pink-900';
 
-// Spacing types
 type Spacing = 
   | '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '3.5' | '4' | '5' | '6' | '7' | '8'
   | '9' | '10' | '11' | '12' | '14' | '16' | '20' | '24' | '28' | '32' | '36' | '40' | '44' | '48';
@@ -35,30 +32,17 @@ type SpacingObject = {
 };
 
 export interface AtomicIconProps extends Omit<LucideProps, 'size' | 'color'> {
-  // Icon
   icon: LucideIcon;
-  
-  // Appearance
   size?: IconSize;
   color?: Color;
   hoverColor?: Color;
-  
-  // Spacing
   p?: Spacing | SpacingObject;
   m?: Spacing | SpacingObject;
-  
-  // Interactive
   cursor?: 'auto' | 'default' | 'pointer' | 'wait' | 'help' | 'not-allowed';
-  
-  // Animation
   spin?: boolean;
   pulse?: boolean;
   bounce?: boolean;
-  
-  // Transform
   rotate?: '0' | '45' | '90' | '180' | '-45' | '-90' | '-180';
-  
-  // Accessibility
   'aria-label'?: string;
   'aria-hidden'?: boolean;
 }
@@ -92,7 +76,7 @@ const getSizeValue = (size: IconSize): number => {
     case 'lg': return 24;
     case 'xl': return 28;
     case '2xl': return 32;
-    default: return 20; // md default
+    default: return 20;
   }
 };
 
@@ -117,29 +101,16 @@ export const AtomicIcon = React.forwardRef<SVGSVGElement, AtomicIconProps>(
     const sizeValue = getSizeValue(size);
     
     const classes = cn(
-      // Base styles
       'inline-block flex-shrink-0',
-      
-      // Color
       color && `text-${color}`,
       hoverColor && `hover:text-${hoverColor}`,
-      
-      // Spacing
       getSpacingClass(p, 'p'),
       getSpacingClass(m, 'm'),
-      
-      // Interactive
       cursor && `cursor-${cursor}`,
-      
-      // Animations
       spin && 'animate-spin',
       pulse && 'animate-pulse',
       bounce && 'animate-bounce',
-      
-      // Transform
       rotate && `rotate-${rotate}`,
-      
-      // Transitions
       (hoverColor || cursor === 'pointer') && 'transition-colors duration-200',
       
       className

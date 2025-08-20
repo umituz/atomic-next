@@ -1,15 +1,12 @@
 import React from 'react';
 import { cn } from '../../utils';
 
-// Size types
 type SwitchSize = 'sm' | 'md' | 'lg';
 
-// Color types
 type Color = 
   | 'slate' | 'gray' | 'zinc' | 'red' | 'orange' | 'yellow' 
   | 'green' | 'blue' | 'indigo' | 'purple' | 'pink';
 
-// Spacing types
 type Spacing = 
   | '0' | 'px' | '0.5' | '1' | '1.5' | '2' | '2.5' | '3' | '3.5' | '4' | '5' | '6' | '7' | '8';
 
@@ -23,27 +20,16 @@ type SpacingObject = {
 };
 
 export interface AtomicSwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'color' | 'onChange'> {
-  // State
   checked?: boolean;
   disabled?: boolean;
-  
-  // Appearance
   size?: SwitchSize;
   color?: Color;
-  
-  // Spacing
   p?: Spacing | SpacingObject;
   m?: Spacing | SpacingObject;
-  
-  // Label
   label?: string;
   description?: string;
   labelPosition?: 'left' | 'right';
-  
-  // Loading state
   loading?: boolean;
-  
-  // Events
   onChange?: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
   onInputChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
@@ -154,48 +140,27 @@ export const AtomicSwitch = React.forwardRef<HTMLInputElement, AtomicSwitchProps
     };
 
     const containerClasses = cn(
-      // Base styles
       'relative flex items-center',
-      
-      // Size
       sizeClasses.container,
-      
-      // Spacing
       getSpacingClass(p, 'p'),
       getSpacingClass(m, 'm'),
-      
-      // Disabled
       disabled && 'opacity-50 cursor-not-allowed',
       
       className
     );
 
     const trackClasses = cn(
-      // Base styles
       'relative inline-flex flex-shrink-0 rounded-full border-2 border-transparent transition-colors ease-in-out duration-200',
-      
-      // Size
       sizeClasses.track,
-      
-      // Colors
       colorClasses,
-      
-      // Focus styles
       'focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2',
       `focus-within:ring-${color}-500`,
-      
-      // Interactive
       disabled || loading ? 'cursor-not-allowed' : 'cursor-pointer'
     );
 
     const thumbClasses = cn(
-      // Base styles
       'pointer-events-none inline-block rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200',
-      
-      // Size
       sizeClasses.thumb,
-      
-      // Position
       checked ? sizeClasses.thumbTranslate : 'translate-x-0'
     );
 

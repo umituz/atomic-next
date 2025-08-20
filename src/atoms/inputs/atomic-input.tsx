@@ -1,10 +1,5 @@
 'use client'
 
-/**
- * AtomicInput Component
- * A versatile interactive input component for Next.js applications
- * Follows atomic design principles with full client-side interactivity
- */
 
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -103,13 +98,13 @@ const AtomicInput = React.forwardRef<HTMLInputElement, AtomicInputProps>(
     const [showPassword, setShowPassword] = React.useState(false)
     const [internalValue, setInternalValue] = React.useState(value || '')
     
-    // Determine the current state based on props
+    
     let currentState = state
     if (error) currentState = 'error'
     else if (success) currentState = 'success'
     else if (warning) currentState = 'warning'
     
-    // Determine input type
+    
     let inputType = type
     if (type === 'password' && showPasswordToggle) {
       inputType = showPassword ? 'text' : 'password'
@@ -127,7 +122,7 @@ const AtomicInput = React.forwardRef<HTMLInputElement, AtomicInputProps>(
     const handleClear = () => {
       setInternalValue('')
       onClear?.()
-      // Create and dispatch a synthetic event
+      
       const syntheticEvent = {
         target: { value: '' },
         currentTarget: { value: '' },

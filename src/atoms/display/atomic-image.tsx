@@ -1,8 +1,3 @@
-/**
- * AtomicImage Component
- * A Next.js optimized image component following atomic design principles
- * Server-side safe wrapper around Next.js Image component
- */
 
 import Image from 'next/image'
 import { cn } from '../../utils/cn'
@@ -64,24 +59,6 @@ export interface AtomicImageProps
   placeholderSrc?: string
 }
 
-/**
- * AtomicImage - Next.js optimized image component
- * 
- * A wrapper around Next.js Image component with atomic design variants.
- * Provides consistent styling and automatic optimization for web performance.
- * Can be used in both Server and Client Components.
- * 
- * @example
- * <AtomicImage 
- *   src="/hero.jpg" 
- *   alt="Hero image" 
- *   width={800} 
- *   height={600}
- *   rounded="lg"
- *   aspectRatio="video"
- *   priority
- * />
- */
 export const AtomicImage = React.forwardRef<
   React.ElementRef<typeof Image>,
   AtomicImageProps
@@ -109,7 +86,7 @@ export const AtomicImage = React.forwardRef<
             rounded, 
             objectFit, 
             objectPosition,
-            aspectRatio: undefined // Don't apply aspect ratio to image itself
+            aspectRatio: undefined
           }), 
           className
         )}
