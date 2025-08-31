@@ -1,13 +1,13 @@
 
 export const AtomicColors = {
   
-  primary: '#8B5CF6',
-  primaryLight: '#A78BFA',
-  primaryDark: '#7C3AED',
+  primary: '#9333EA',      // Updated to match brand-purple-600
+  primaryLight: '#A855F7', // brand-purple-500
+  primaryDark: '#7C3AED',  // brand-purple-700
   
-  secondary: '#EC4899',
-  secondaryLight: '#F472B6',
-  secondaryDark: '#DB2777',
+  secondary: '#EC4899',    // matches brand-pink-500
+  secondaryLight: '#F472B6', // brand-pink-400
+  secondaryDark: '#DB2777', // brand-pink-600
   
   accent: '#F59E0B',
   accentLight: '#FBBF24',
