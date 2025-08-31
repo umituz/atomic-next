@@ -14,7 +14,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100',
         primary: 'bg-[--atomic-primary] text-white hover:bg-[--atomic-primary-dark] transition-all duration-200',
-        brand: 'bg-gradient-to-r from-[--atomic-primary] to-[--atomic-secondary] text-white hover:shadow-xl transition-all duration-200',
+        brand: 'text-white hover:shadow-xl transition-all duration-200',
         destructive: 'bg-red-600 text-white hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600',
         outline: 'border border-gray-300 bg-transparent hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800',
         secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700',
@@ -77,6 +77,12 @@ const AtomicButton = React.forwardRef<HTMLButtonElement, AtomicButtonProps>(
           fullWidth && 'w-full',
           className
         )}
+        style={{
+          ...(variant === 'brand' && {
+            background: 'linear-gradient(to right, var(--atomic-primary), var(--atomic-secondary))'
+          }),
+          ...props.style
+        }}
         ref={ref}
         disabled={isDisabled}
         {...props}
