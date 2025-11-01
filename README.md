@@ -445,7 +445,7 @@ npm run test:watch
 
 ## 📚 Documentation
 
-Visit our [documentation site](https://atomic-next.umituz.com) for:
+Visit our [documentation site](https://umituz.com/opensource/atomic-next) for:
 
 - **Interactive Component Playground**
 - **Complete API Documentation**
