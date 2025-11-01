@@ -1,31 +1,18 @@
 
+// ⚠️  NOTICE: Core design system components have been moved to React Native template system
+// This package now only exports CSS variables for web/Next.js usage
+// For React Native projects, use: generator/tech-stack/react-native/templates/atomics/tokens/AtomicDesignTokens.ts
+
 export {
-  AtomicColors,
-  ColorUtils,
   AtomicColorsCss,
-  type AtomicColor,
-  type AtomicColorValue,
 } from './colors/atomic-colors'
 
 export {
-  AtomicSpacing,
-  SpacingUtils,
   AtomicSpacingCss,
-  type AtomicSpacingKey,
-  type AtomicSpacingValue,
 } from './spacing/atomic-spacing'
 
 export {
-  AtomicTypography,
-  TypographyUtils,
-  AtomicTextStyles,
   AtomicTypographyCss,
-  type AtomicFontSize,
-  type AtomicFontWeight,
-  type AtomicLineHeight,
-  type AtomicLetterSpacing,
-  type AtomicFontFamily,
-  type AtomicTextStyle,
 } from './typography/atomic-typography'
 
 export {
