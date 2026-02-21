@@ -15,10 +15,16 @@ const textVariants = cva('', {
       h6: 'scroll-m-20 text-base font-semibold tracking-tight',
       
       body: 'text-base leading-7',
+      base: 'text-base leading-7',
       large: 'text-lg leading-7',
+      lg: 'text-lg leading-7',
       small: 'text-sm leading-6',
+      sm: 'text-sm leading-6',
       xs: 'text-xs leading-5',
-      
+      xl: 'text-xl leading-7',
+      '2xl': 'text-2xl leading-8',
+      '3xl': 'text-3xl leading-9',
+
       lead: 'text-xl leading-7 text-muted-foreground',
       muted: 'text-sm text-muted-foreground',
       caption: 'text-xs text-muted-foreground',

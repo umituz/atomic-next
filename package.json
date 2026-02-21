@@ -1,6 +1,6 @@
 {
   "name": "@umituz/atomic-next",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A comprehensive atomic design system for Next.js with Server/Client Component separation, built-in optimizations, and semantic HTML support.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -38,7 +38,7 @@
     "tailwindcss",
     "radix-ui"
   ],
-  "author": "\u00dcmit UZ <umit@umituz.com>",
+  "author": "Ümit UZ <umit@umituz.com>",
   "license": "MIT",
   "homepage": "https://umituz.com/opensource/atomic-next",
   "repository": {
