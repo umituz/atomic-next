@@ -11,8 +11,9 @@ export default defineConfig({
   minify: false,
   splitting: false,
   banner: {
-    js: `/**
- * @umituz/atomic-next v2.0.0
+    js: `'use client';
+/**
+ * @umituz/atomic-next
  * Atomic design system for Next.js
  * https://umituz.com/opensource/atomic-next
  */`,

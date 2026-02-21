@@ -1,6 +1,6 @@
 {
   "name": "@umituz/atomic-next",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A comprehensive atomic design system for Next.js with Server/Client Component separation, built-in optimizations, and semantic HTML support.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
