@@ -10,12 +10,4 @@ export default defineConfig({
   treeshake: true,
   minify: false,
   splitting: false,
-  banner: {
-    js: `'use client';
-/**
- * @umituz/atomic-next
- * Atomic design system for Next.js
- * https://umituz.com/opensource/atomic-next
- */`,
-  },
 })

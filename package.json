@@ -1,6 +1,6 @@
 {
   "name": "@umituz/atomic-next",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A comprehensive atomic design system for Next.js with Server/Client Component separation, built-in optimizations, and semantic HTML support.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -19,7 +19,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && node -e \"const fs=require('fs');['dist/index.js','dist/index.mjs'].forEach(f=>{const c='\\\"use client\\\";\\n'+fs.readFileSync(f,'utf8');fs.writeFileSync(f,c);})\";",
     "dev": "tsup --watch",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
